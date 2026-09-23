@@ -1,0 +1,9 @@
+[submodule "upstream/chtc-website-source"]
+	path = upstream/chtc-website-source
+	url = https://github.com/CHTC/chtc-website-source.git
+[submodule "upstream/templates-GPUs"]
+	path = upstream/templates-GPUs
+	url = https://github.com/CHTC/templates-GPUs.git
+[submodule "upstream/recipes"]
+	path = upstream/recipes
+	url = https://github.com/CHTC/recipes.git
