@@ -6,7 +6,7 @@ sources:
   - chtc-website-source:_uw-research-computing/htc/dagman-simple-example.md
   - chtc-website-source:_uw-research-computing/htc/tutorial-dagman-intermediate.md
   - chtc-website-source:_uw-research-computing/machine-learning-htc.md
-upstream_reviewed: 2026-09-23
+upstream_reviewed: 2026-09-24
 ---
 
 # DAGMan workflows at CHTC
@@ -122,6 +122,13 @@ Points that are easy to get wrong:
 - **One shared `log`** across all nodes is conventional and fine.
 - **`RETRY <node> <n>`** is the cheapest reliability you will ever add. Use it
   on anything that touches the network or a shared filesystem.
+- **`SCRIPT PRE` / `SCRIPT POST` work, and a script passed in `files` is
+  runnable** — you do not have to do anything about permissions. A POST script
+  is the natural place to check that a node produced what it should:
+  `SCRIPT POST COMBINE check_output.sh $RETURN`, with `check_output.sh` in
+  `files`. A non-zero exit fails the node, which is what makes `RETRY` useful.
+  PRE/POST scripts run on the access point, not on an execute node, so keep
+  them to seconds of work — `chtc-policies-and-limits` applies to them.
 - Resource requests are per node, and everything in `chtc-resource-requests`
   applies to each one.
 
@@ -152,8 +159,10 @@ What comes back as a **note** (submitted anyway):
 > **Expect false alarms on that last one when `VARS` are involved.** A producer
 > declaring `transfer_output_files = result_$(sample).txt` does not textually
 > match a consumer asking for `result_1.txt`, so the check reports the file as
-> unaccounted for even though the workflow is correct. Read those notes, satisfy
-> yourself that some ancestor really does produce each file, and move on.
+> unaccounted for even though the workflow is correct — confirmed by running
+> exactly that workflow, warnings and all, to a correct result. Read those
+> notes, satisfy yourself that some ancestor really does produce each file, and
+> move on.
 
 ## Getting data in and out
 
@@ -186,6 +195,10 @@ query_jobs(
 readable: you see `PREP`, `A1`, `A2` rather than bare cluster ids. The manager
 itself runs in the scheduler universe on the access point and shows as
 `/usr/bin/condor_dagman`.
+
+`get_job` on the manager's id is the quickest read: it returns a `dag` block
+with `nodes_done`, `nodes_queued`, `nodes_failed`, `nodes_unready` and whether
+the workflow is stuck, which beats reconstructing that from the node jobs.
 
 To wait for the whole workflow, watch the manager — it leaves the queue when
 the DAG is finished:
