@@ -210,31 +210,23 @@ Anything but a single `ExitCode == 0` group means stop and look.
 
 ## Multi-stage workflows (DAGMan)
 
-CHTC documents DAGMan for workflows where stage B needs stage A's output.
-**`condor_submit_dag` is not exposed through this server.** Two options:
+When stage B needs stage A's output, use DAGMan. It is available here as the
+**`submit_dag`** tool: the whole workflow — the DAG text plus every file it
+references — goes in one call, and DAGMan then runs it unattended, with
+retries and throttling.
 
-1. **Drive the sequence yourself.** Submit stage A, register
-   `watch_jobs(constraint = "ClusterId == A", event = "succeeded")`, wait with
-   `check_watches`, then submit stage B. This is reliable for a handful of
-   stages and has the advantage that you can inspect A's results before
-   committing to B. It is *not* a substitute for DAGMan on a graph of hundreds
-   of nodes, and it stops working the moment the conversation ends.
-2. **Hand the DAG to the user.** For a real workflow that must run unattended
-   for days, write the `.dag` and submit files and ask them to run
-   `condor_submit_dag example.dag` on the access point. DAGMan then handles
-   retries, throttling and recovery on its own. The DAG file is simply:
+```
+submit_dag(dag = "...", files = {"check.sh": "..."}, batch_name = "my-workflow")
+```
 
-   ```
-   JOB  prep    prep.sub
-   JOB  train   train.sub
-   JOB  gather  gather.sub
-   PARENT prep  CHILD train
-   PARENT train CHILD gather
-   ```
+See `chtc-dag-workflows` for how to write one, what the pre-submit checker
+will and will not catch, and how to watch a running workflow.
 
-Be explicit with the user about which you are doing and why.
+Still prefer a single `queue … from` submission when the jobs are independent
+— that is one cluster instead of a graph, and everything above applies. DAGMan
+earns its complexity when there are real dependencies.
 
 ## Related skills
 
-`chtc-submit-basics`, `chtc-data-transfer`, `chtc-monitoring`,
-`chtc-resource-requests`, `chtc-policies-and-limits`
+`chtc-dag-workflows`, `chtc-submit-basics`, `chtc-data-transfer`,
+`chtc-monitoring`, `chtc-resource-requests`, `chtc-policies-and-limits`

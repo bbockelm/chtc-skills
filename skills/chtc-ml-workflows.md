@@ -193,6 +193,9 @@ Try a larger batch on one GPU with gradient accumulation first.
 
 ## Improving the workflow
 
+- **Chain the stages with DAGMan** (`submit_dag`) once the shape is settled:
+  preprocess, sweep, evaluate becomes one workflow that runs unattended with
+  retries. See `chtc-dag-workflows`.
 - **Monitor runs** with Weights & Biases or similar — mind the key handling above.
 - **Checkpoint to shorten jobs**, which raises the concurrent-job cap on the GPU
   Lab short tier and opens backfill and OSPool capacity.
@@ -204,4 +207,5 @@ Try a larger batch on one GPU with gradient accumulation first.
 ## Related skills
 
 `chtc-gpu-jobs`, `chtc-checkpointing`, `chtc-containers`,
-`chtc-software-recipes`, `chtc-many-jobs`, `chtc-scaling-beyond-chtc`
+`chtc-software-recipes`, `chtc-many-jobs`, `chtc-dag-workflows`,
+`chtc-scaling-beyond-chtc`

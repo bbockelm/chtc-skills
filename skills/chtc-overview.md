@@ -69,6 +69,7 @@ it" is not a defence for wasted GPU hours, a flooded queue, or deleted data.
 | Write and submit a first job | `chtc-submit-basics` |
 | Decide `request_cpus` / `_memory` / `_disk` | `chtc-resource-requests` |
 | Submit hundreds or thousands of jobs | `chtc-many-jobs` |
+| Chain stages that depend on each other | `chtc-dag-workflows` |
 | Get input in / output out | `chtc-data-transfer` |
 | Data bigger than ~1 GB per file | `chtc-staging-large-data` |
 | Data already on ResearchDrive | `chtc-researchdrive-uwdf` |
@@ -108,9 +109,6 @@ Be honest with the user when one of these comes up rather than inventing a tool:
   covers most of what people actually wanted `condor_status` for.
 - **No quota inspection.** `quota -vs`, `get_quotas` and `ncdu` are AP shell
   commands. Ask the user to run them, or to email chtc@cs.wisc.edu.
-- **No DAGMan submission.** `condor_submit_dag` is not exposed. Chain stages
-  yourself with watches (see `chtc-many-jobs`), or ask the user to submit the
-  DAG from a shell.
 - **No `condor_vacate_job`.** You cannot deliberately evict a job to test
   checkpoint resume.
 - **No filesystem browsing on the AP.** You cannot `ls /home/$USER`.

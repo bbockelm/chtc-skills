@@ -122,12 +122,13 @@ data, containers, GPUs, workflows, monitoring, policy.
 | retrieving results by `ls`/`cat` | `get_job_stdout`, `get_job_stderr`, `get_job_output` |
 | `apptainer build` in an interactive job | `build_container(definition=..., verify=...)` |
 | `docker build` + `docker push` | `build_container(dockerfile=..., verify=...)` |
+| `condor_submit_dag workflow.dag` | `submit_dag(dag=..., files=...)` |
 
 **No equivalent exists** for these; say so plainly in the skill rather than
 inventing one:
 
-`condor_status` · `condor_submit_dag` · `condor_vacate_job` · `quota -vs` ·
-`get_quotas` · `ncdu` · any direct filesystem access on the access point.
+`condor_status` · `condor_vacate_job` · `quota -vs` · `get_quotas` · `ncdu` ·
+any direct filesystem access on the access point.
 
 Where there is a partial substitute, name it: `analyze_job_match` covers most of
 what people wanted `condor_status` for; `query_job_epochs` observes restarts

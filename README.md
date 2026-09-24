@@ -30,6 +30,7 @@ the rest.
 | `chtc-submit-basics` | Writing and submitting a job; the CHTC submit-file conventions |
 | `chtc-resource-requests` | Sizing CPU, memory and disk from measured usage |
 | `chtc-many-jobs` | `queue N`, `queue … from`, `initialdir`, scale limits |
+| `chtc-dag-workflows` | Multi-stage workflows via `submit_dag` |
 | `chtc-data-transfer` | Which protocol for which file size; getting results back |
 | `chtc-staging-large-data` | `/staging` policy and use without a shell |
 | `chtc-researchdrive-uwdf` | `pelican://` transfers to and from ResearchDrive |
