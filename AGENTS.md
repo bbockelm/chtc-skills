@@ -118,6 +118,7 @@ data, containers, GPUs, workflows, monitoring, policy.
 | `condor_hold` / `condor_release` | `hold_job` / `release_job` |
 | `condor_qedit` | `edit_job` |
 | `condor_history` | `query_job_archive`, `query_history_db` |
+| `condor_status` | `query_pool` (summary by default; `mode="list"` for individual slots) |
 | reading `.log` for usage | `query_job_archive` with a usage projection |
 | retrieving results by `ls`/`cat` | `get_job_stdout`, `get_job_stderr`, `get_job_output` |
 | `apptainer build` in an interactive job | `build_container(definition=..., verify=...)` |
@@ -127,11 +128,10 @@ data, containers, GPUs, workflows, monitoring, policy.
 **No equivalent exists** for these; say so plainly in the skill rather than
 inventing one:
 
-`condor_status` · `condor_vacate_job` · `quota -vs` · `get_quotas` · `ncdu` ·
+`condor_vacate_job` · `quota -vs` · `get_quotas` · `ncdu` ·
 any direct filesystem access on the access point.
 
-Where there is a partial substitute, name it: `analyze_job_match` covers most of
-what people wanted `condor_status` for; `query_job_epochs` observes restarts
+Where there is a partial substitute, name it: `query_job_epochs` observes restarts
 without `condor_vacate_job`.
 
 ### 3. Delete the choreography, keep the content
