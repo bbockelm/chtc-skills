@@ -1,11 +1,12 @@
 ---
 name: chtc-scaling-beyond-chtc
-description: Opting CHTC jobs into UW campus pools and the OSPool with want_campus_pools and want_ospool — whether the work qualifies, what must change first, and how to test.
+description: Opting CHTC jobs into UW campus pools and the OSPool with want_campus_pools and want_ospool — whether the work qualifies, what must change first, and how to test — and sending jobs to the user's own HPC allocation through an HTCondor Annex.
 sources:
   - chtc-website-source:_uw-research-computing/scaling-htc.md
   - chtc-website-source:_uw-research-computing/htc-overview.md
   - chtc-website-source:_uw-research-computing/apptainer-htc.md
-upstream_reviewed: 2026-09-22
+  - chtc-website-source:_uw-research-computing/annex.md
+upstream_reviewed: 2026-10-19
 ---
 
 # Scaling beyond CHTC
@@ -128,6 +129,43 @@ own machines, which is the opposite of the goal.
   for GPU work this is often the fastest route to more throughput. The same
   qualification rules apply, plus a container with a CUDA build that does not
   demand the very newest driver.
+
+## The user's own HPC allocation: HTCondor Annex
+
+A user with an allocation elsewhere (CHTC's guide uses Expanse at SDSC) can
+attach it to their CHTC Access Point as an **annex**: execution points started
+by a Slurm job on that cluster, which then run jobs submitted here. CHTC marks
+this as under development and asks users to **contact the facilitators before
+starting** (chtc@cs.wisc.edu).
+
+Creating the annex is not something you can do. It needs `htcondor annex
+create` in a shell on the Access Point, then copying the tarball to the HPC
+system, running its setup script and submitting its Slurm job there. Tell the
+user those steps are theirs, and point them at CHTC's guide.
+
+What you can do is send jobs to an annex the user has created. Add to the
+submit file:
+
+```
+MY.TargetAnnexName = "my_annex"
+MY.WantFlocking    = true
+```
+
+Jobs with these lines can also run on CHTC's open capacity. To run **only** on
+the annex, also require it:
+
+```
+requirements = (Target.AnnexName == "my_annex") && <other requirements>
+```
+
+Use the name the user gave `htcondor annex create`. The user who
+created the annex must also be the user submitting to it; CHTC does not yet
+support sharing one annex between users.
+
+To see whether the annex is up, query its slots:
+`query_pool(constraint = 'AnnexName == "my_annex"')`. No slots means the Slurm
+job has not started, or has ended. Annex jobs that sit idle while those slots
+exist are a matching problem; use `analyze_job_match`.
 
 ## When it will not help
 

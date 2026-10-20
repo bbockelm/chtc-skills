@@ -6,7 +6,7 @@ sources:
   - chtc-website-source:_uw-research-computing/condor_q.md
   - chtc-website-source:_uw-research-computing/user-expectations.md
   - chtc-website-source:_uw-research-computing/agent-recommendations.md
-upstream_reviewed: 2026-09-22
+upstream_reviewed: 2026-10-19
 ---
 
 # Monitoring jobs at CHTC

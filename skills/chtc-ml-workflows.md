@@ -8,7 +8,7 @@ sources:
   - templates-GPUs:llm/
   - templates-GPUs:multi_gpu/
   - templates-GPUs:checkpointing/
-upstream_reviewed: 2026-09-22
+upstream_reviewed: 2026-10-19
 ---
 
 # ML and LLM workflows on CHTC

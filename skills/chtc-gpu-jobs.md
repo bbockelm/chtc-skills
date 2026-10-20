@@ -7,7 +7,7 @@ sources:
   - chtc-website-source:_uw-research-computing/htc-interactive-gpu-jobs.md
   - chtc-website-source:_uw-research-computing/htc-known-issues.md
   - templates-GPUs:README.md
-upstream_reviewed: 2026-09-22
+upstream_reviewed: 2026-10-19
 ---
 
 # GPU jobs at CHTC

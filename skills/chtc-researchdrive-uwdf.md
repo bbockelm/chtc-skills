@@ -4,7 +4,7 @@ description: Transferring files directly between UW ResearchDrive and CHTC jobs 
 sources:
   - chtc-website-source:_uw-research-computing/htc-uwdf-researchdrive.md
   - chtc-website-source:_uw-research-computing/transfer-data-researchdrive.md
-upstream_reviewed: 2026-09-22
+upstream_reviewed: 2026-10-19
 ---
 
 # ResearchDrive as job storage (UWDF / pelican://)

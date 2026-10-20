@@ -9,7 +9,7 @@ sources:
   - chtc-website-source:_uw-research-computing/os-request-htc.md
   - chtc-website-source:_uw-research-computing/htc-known-issues.md
   - recipes:software/
-upstream_reviewed: 2026-09-22
+upstream_reviewed: 2026-10-19
 ---
 
 # Containers at CHTC

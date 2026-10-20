@@ -6,7 +6,7 @@ sources:
   - chtc-website-source:_uw-research-computing/htc-monitor-jobs.md
   - chtc-website-source:_uw-research-computing/testing-jobs.md
   - chtc-website-source:_uw-research-computing/os-request-htc.md
-upstream_reviewed: 2026-09-22
+upstream_reviewed: 2026-10-19
 ---
 
 # Troubleshooting CHTC jobs
@@ -26,6 +26,14 @@ query_jobs(constraint = "ClusterId == N",
 | 2 | Running | [Running badly](#running-but-wrong) |
 | 5 | Held — HTCondor stopped it | [Held](#held) |
 | absent from the queue | Finished or removed | [Finished wrong](#finished-with-the-wrong-result) |
+
+When many jobs are held or failing, or the question is "what is going wrong"
+rather than about one cluster, start with `analyze_issues` instead. It groups
+holds and failed runs from the last day (`window_hours` to change that) into
+distinct problems, each with a job count and example jobs. It covers the
+user's own jobs; an MCP admin sees every user's, and there a problem spanning
+many users points at the site rather than a submit file (see
+[When to stop and ask](#when-to-stop-and-ask)).
 
 ## Idle
 

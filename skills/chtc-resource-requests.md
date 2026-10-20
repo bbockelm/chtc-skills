@@ -5,7 +5,7 @@ sources:
   - chtc-website-source:_uw-research-computing/testing-and-scaling-up.md
   - chtc-website-source:_uw-research-computing/htcondor-job-submission.md
   - chtc-website-source:_uw-research-computing/variable-memory.md
-upstream_reviewed: 2026-09-22
+upstream_reviewed: 2026-10-19
 ---
 
 # Getting resource requests right

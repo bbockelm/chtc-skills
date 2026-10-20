@@ -5,7 +5,7 @@ sources:
   - chtc-website-source:_uw-research-computing/htcondor-job-submission.md
   - chtc-website-source:_uw-research-computing/testing-and-scaling-up.md
   - chtc-website-source:_uw-research-computing/htc-job-file-transfer.md
-upstream_reviewed: 2026-09-22
+upstream_reviewed: 2026-10-19
 ---
 
 # Submitting a job at CHTC
@@ -76,7 +76,8 @@ Points that are CHTC-specific or easy to get wrong:
 
 ### `executable`/`arguments` versus `shell`
 
-CHTC documents both. They differ in who transfers the script:
+CHTC documents both and leads with `executable`/`arguments`. They differ in who
+transfers the script:
 
 ```
 # Option A — executable + arguments  (RECOMMENDED here)
