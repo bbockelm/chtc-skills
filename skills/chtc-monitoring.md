@@ -33,6 +33,7 @@ tells you when something happens rather than making you ask.
 | `condor_tail` | `tail_job_output` |
 | `condor_ssh_to_job` | `exec_in_job` |
 | `condor_history` | `query_job_archive`, or `query_history_db` |
+| `condor_status` | `query_pool` — slots, CPUs/GPUs/memory, claimed vs unclaimed |
 
 ## Waiting: the correct pattern
 
@@ -161,8 +162,6 @@ minutes rather than hours.
 
 ## Things this interface does not have
 
-- **No `condor_status`** — you cannot enumerate the pool. `analyze_job_match`
-  answers the question people usually had.
 - **No `condor_vacate_job`** — you cannot deliberately evict a job.
 - **No queue-wide view of other users' jobs** unless you are an MCP admin; every
   answer states which scope it used. `whoami`, where available, says what you
