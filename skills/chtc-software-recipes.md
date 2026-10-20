@@ -9,7 +9,7 @@ sources:
   - chtc-website-source:_uw-research-computing/matlab-jobs.md
   - chtc-website-source:_uw-research-computing/conda-installation.md
   - chtc-website-source:_uw-research-computing/licensed-software.md
-upstream_reviewed: 2026-09-22
+upstream_reviewed: 2026-10-19
 ---
 
 # CHTC software recipes

@@ -6,7 +6,7 @@ sources:
   - chtc-website-source:_uw-research-computing/htc-interactive-gpu-jobs.md
   - chtc-website-source:_uw-research-computing/htc-monitor-jobs.md
   - chtc-website-source:_uw-research-computing/user-expectations.md
-upstream_reviewed: 2026-09-22
+upstream_reviewed: 2026-10-19
 ---
 
 # Interactive work on CHTC

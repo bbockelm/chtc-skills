@@ -6,7 +6,7 @@ sources:
   - chtc-website-source:_uw-research-computing/htc/dagman-simple-example.md
   - chtc-website-source:_uw-research-computing/htc/tutorial-dagman-intermediate.md
   - chtc-website-source:_uw-research-computing/machine-learning-htc.md
-upstream_reviewed: 2026-09-24
+upstream_reviewed: 2026-10-19
 ---
 
 # DAGMan workflows at CHTC

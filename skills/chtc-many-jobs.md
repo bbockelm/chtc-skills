@@ -6,7 +6,7 @@ sources:
   - chtc-website-source:_uw-research-computing/multiple-job-dirs.md
   - chtc-website-source:_uw-research-computing/htc-passing-arguments.md
   - chtc-website-source:_uw-research-computing/htc/dagman-workflows.md
-upstream_reviewed: 2026-09-22
+upstream_reviewed: 2026-10-19
 ---
 
 # Many jobs from one submit description

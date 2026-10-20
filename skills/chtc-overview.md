@@ -5,7 +5,7 @@ sources:
   - chtc-website-source:_uw-research-computing/htc-overview.md
   - chtc-website-source:_uw-research-computing/agent-recommendations.md
   - chtc-website-source:_uw-research-computing/user-expectations.md
-upstream_reviewed: 2026-09-22
+upstream_reviewed: 2026-10-19
 ---
 
 # CHTC overview: how to work here

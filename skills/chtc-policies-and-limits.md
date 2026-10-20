@@ -7,7 +7,7 @@ sources:
   - chtc-website-source:_uw-research-computing/file-avail-largedata.md
   - chtc-website-source:_uw-research-computing/gpu-jobs.md
   - chtc-website-source:_uw-research-computing/high-memory-jobs.md
-upstream_reviewed: 2026-09-22
+upstream_reviewed: 2026-10-19
 ---
 
 # CHTC policies and limits

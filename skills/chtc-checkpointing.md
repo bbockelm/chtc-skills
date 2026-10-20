@@ -5,7 +5,7 @@ sources:
   - chtc-website-source:_uw-research-computing/checkpointing.md
   - chtc-website-source:_uw-research-computing/gpu-jobs.md
   - chtc-website-source:_uw-research-computing/scaling-htc.md
-upstream_reviewed: 2026-09-22
+upstream_reviewed: 2026-10-19
 ---
 
 # Checkpointing at CHTC

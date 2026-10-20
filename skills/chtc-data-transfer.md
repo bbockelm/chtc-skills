@@ -5,7 +5,7 @@ sources:
   - chtc-website-source:_uw-research-computing/htc-job-file-transfer.md
   - chtc-website-source:_uw-research-computing/file-avail-largedata.md
   - chtc-website-source:_uw-research-computing/transfer-files-computer.md
-upstream_reviewed: 2026-09-22
+upstream_reviewed: 2026-10-19
 ---
 
 # Getting data into and out of CHTC jobs
@@ -145,11 +145,18 @@ semicolon-separated list — a very common syntax error.
 - `tail_job_output(job_id)` — while it is **running**, read from the execute
   node. Pass back the offsets it returns to get only what is new; poll no more
   often than every 5 seconds.
+- `create_output_download_url(job_id)` — a short-lived URL that returns the
+  whole sandbox as a tar, so the bytes never pass through the conversation.
+  Fetch it with a shell command (`curl -fsSL '<url>' | tar xv -C results/`), or
+  give it to the user to click; it needs no credentials. Use it as soon as
+  `get_job_output` comes back truncated. It works only while the job is still
+  in the queue.
 
 `get_job_*` read transferred files and are the wrong tools mid-run;
 `tail_job_output` is the reverse. For big results, prefer sending them to
-`/staging` or ResearchDrive and telling the user where they are, over pulling
-tens of megabytes through the conversation.
+`/staging` or ResearchDrive and telling the user where they are, or handing
+over a `create_output_download_url` link, over pulling tens of megabytes
+through the conversation.
 
 ## Design rules worth following
 

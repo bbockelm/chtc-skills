@@ -5,7 +5,7 @@ sources:
   - chtc-website-source:_uw-research-computing/file-avail-largedata.md
   - chtc-website-source:_uw-research-computing/htc-job-file-transfer.md
   - chtc-website-source:_uw-research-computing/file-avail-s3.md
-upstream_reviewed: 2026-09-22
+upstream_reviewed: 2026-10-19
 ---
 
 # /staging: large data at CHTC
